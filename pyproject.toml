@@ -1,0 +1,36 @@
+[project]
+name = "interactive-feedback-mcp"
+version = "1.0.0"
+description = "MCP server for interactive user feedback and command execution in AI-assisted development."
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Interactive Feedback MCP Contributors"},
+]
+keywords = ["mcp", "ai", "development", "feedback", "automation", "cursor", "human-in-the-loop"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Tools",
+    "Topic :: Utilities",
+    "Operating System :: OS Independent",
+    "Environment :: X11 Applications :: Qt",
+]
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp>=2.0.0",
+    "psutil>=7.0.0",
+    "pyside6>=6.8.2.1",
+    "pillow>=9.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/lsq/interactive-feedback-mcp"
+Repository = "https://github.com/lsq/interactive-feedback-mcp"
+Issues = "https://github.com/lsq/interactive-feedback-mcp/issues"
+Documentation = "https://github.com/lsq/interactive-feedback-mcp#readme"
+Changelog = "https://github.com/lsq/interactive-feedback-mcp/blob/main/CHANGELOG.md"

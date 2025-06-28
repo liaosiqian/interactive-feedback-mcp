@@ -1,0 +1,37 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv*/
+venv*/
+
+# Logs
+*.log
+logs/
+
+# Development documents and analysis reports
+*_analysis_report.md
+*_completion_report.md
+redundant_features_analysis.md
+project_files_analysis.md
+OPENSOURCE_PREPARATION_CHECKLIST.md
+
+# Temporary directories
+temp_*/
+
+# IDE files
+.idea/
+
+# Runtime files
+*.pid
+*.sock
+
+# Others
+.DS_Store
+.python-version
+uv.lock
