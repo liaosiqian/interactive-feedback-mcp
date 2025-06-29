@@ -123,11 +123,51 @@ This MCP server uses Qt's `QSettings` to store configuration on a per-project ba
 
 ### Storage Locations
 Settings are stored in platform-specific locations:
-- **Windows**: Registry under `HKEY_CURRENT_USER\Software\FabioFerreira\InteractiveFeedbackMCP`
-- **macOS**: `~/Library/Preferences/com.FabioFerreira.InteractiveFeedbackMCP.plist`
-- **Linux**: `~/.config/FabioFerreira/InteractiveFeedbackMCP.conf`
+- **Windows**: Registry under `HKEY_CURRENT_USER\Software\InteractiveFeedbackMCP\InteractiveFeedbackMCP`
+- **macOS**: `~/Library/Preferences/com.InteractiveFeedbackMCP.InteractiveFeedbackMCP.plist`
+- **Linux**: `~/.config/InteractiveFeedbackMCP/InteractiveFeedbackMCP.conf`
 
-Each project gets a unique configuration group based on its directory path hash.
+### Configuration Structure
+- **Global Settings**: General UI settings like window geometry and language preferences are stored in the `MainWindow_General` group
+- **Project-Specific Settings**: Each project gets a unique configuration group based on its directory path hash, formatted as `Project_{ProjectName}_{DirectoryHash}`
+- **Base Transmission Settings**: Global feature settings like Base64 transmission configuration are stored at the root level
+
+### Configuration Isolation Mechanism
+The system ensures different projects' configurations don't interfere with each other through:
+1. **Directory Hashing**: Uses MD5 hash of the project directory to generate unique identifiers
+2. **Group Separation**: Different projects' settings are stored in independent configuration groups
+3. **Fallback Mechanism**: Project-specific settings take priority, with global defaults used when not set
+
+### Specific Configuration Items
+Each project configuration group contains the following settings:
+- `run_command`: Default execution command for the project
+- `execute_automatically`: Whether to automatically execute commands
+- `suffix_mode`: Feedback suffix mode (force/smart/none)
+- `button_size`: Button size setting (small/medium/large/custom)
+- `custom_button_width/height`: Custom button dimensions
+- `visible_buttons`: List of visible quick response buttons
+- `language`: Interface language setting
+- `use_base64_transmission`: Whether to enable Base64 image transmission
+- `base64_target_size_kb`: Target file size for Base64 transmission
+- `commandSectionVisible`: Whether command section is visible
+- `quick_responses`: Custom quick response button configuration
+
+### Configuration File Example
+On Linux systems, the configuration file content looks like:
+```ini
+[MainWindow_General]
+geometry=@ByteArray(...)
+windowState=@ByteArray(...)
+
+[Project_MyProject_a1b2c3d4]
+run_command=python main.py
+execute_automatically=false
+suffix_mode=force
+button_size=medium
+language=zh_CN
+use_base64_transmission=true
+base64_target_size_kb=30
+```
 
 ## 🚀 Installation
 

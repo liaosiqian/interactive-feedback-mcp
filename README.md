@@ -132,11 +132,51 @@
 
 ### 存储位置
 设置存储在特定于平台的位置：
-- **Windows**: 注册表 `HKEY_CURRENT_USER\Software\FabioFerreira\InteractiveFeedbackMCP`
-- **macOS**: `~/Library/Preferences/com.FabioFerreira.InteractiveFeedbackMCP.plist`
-- **Linux**: `~/.config/FabioFerreira/InteractiveFeedbackMCP.conf`
+- **Windows**: 注册表 `HKEY_CURRENT_USER\Software\InteractiveFeedbackMCP\InteractiveFeedbackMCP`
+- **macOS**: `~/Library/Preferences/com.InteractiveFeedbackMCP.InteractiveFeedbackMCP.plist`
+- **Linux**: `~/.config/InteractiveFeedbackMCP/InteractiveFeedbackMCP.conf`
 
-每个项目根据其目录路径哈希获得唯一的配置组。
+### 配置组织结构
+- **全局设置**: 窗口几何、语言偏好等通用UI设置存储在`MainWindow_General`组中
+- **项目特定设置**: 每个项目根据其目录路径哈希获得唯一的配置组，格式为`Project_{项目名}_{目录哈希}`
+- **基础传输设置**: Base64传输配置等全局功能设置直接存储在根级别
+
+### 配置隔离机制
+系统通过以下方式确保不同项目的配置互不干扰：
+1. **目录哈希**: 使用项目目录的MD5哈希值生成唯一标识符
+2. **组分离**: 不同项目的设置存储在独立的配置组中
+3. **回退机制**: 项目特定设置优先，未设置时使用全局默认值
+
+### 存储的具体配置项
+每个项目配置组包含以下设置：
+- `run_command`: 项目的默认执行命令
+- `execute_automatically`: 是否自动执行命令
+- `suffix_mode`: 反馈后缀模式（force/smart/none）
+- `button_size`: 按钮大小设置（small/medium/large/custom）
+- `custom_button_width/height`: 自定义按钮尺寸
+- `visible_buttons`: 可见快捷按钮列表
+- `language`: 界面语言设置
+- `use_base64_transmission`: 是否启用Base64图片传输
+- `base64_target_size_kb`: Base64传输的目标文件大小
+- `commandSectionVisible`: 命令区域是否可见
+- `quick_responses`: 自定义快捷响应按钮配置
+
+### 配置文件示例
+在Linux系统上，配置文件内容类似：
+```ini
+[MainWindow_General]
+geometry=@ByteArray(...)
+windowState=@ByteArray(...)
+
+[Project_MyProject_a1b2c3d4]
+run_command=python main.py
+execute_automatically=false
+suffix_mode=force
+button_size=medium
+language=zh_CN
+use_base64_transmission=true
+base64_target_size_kb=30
+```
 
 ## 🚀 安装
 
