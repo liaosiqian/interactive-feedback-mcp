@@ -123,7 +123,7 @@ DEFAULT_BUTTON_PATTERNS = [
     ("完成所有清单", "继续完成剩余的所有清单", "Complete all remaining checklist"),
     ("智能执行清单", "继续执行剩余的清单项", "Execute remaining checklist"),
     ("执行下一项", "继续执行下一项清单项", "Execute next checklist"),
-    ("总结生成cursorrule", "总结当前对话", "Summarize conversation"),
+    ("总结生成规则文件", "同时生成或更新两种规则文件", "Generate or update both rule file formats"),
     ("看起来不错", "看起来不错", "LGTM"),
     ("需要小调整", "基本方向正确", "Good direction"),
     ("完成", "", ""),

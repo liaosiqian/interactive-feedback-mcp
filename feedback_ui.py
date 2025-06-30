@@ -116,6 +116,9 @@ class FeedbackUI(QMainWindow):
         
         # 完成初始化，允许按钮刷新
         self._is_initializing = False
+        
+        # 初始化完成后，根据语言设置更新按钮文本
+        self._update_buttons_for_language_change()
 
         if self.config.get("execute_automatically", False):
             self.event_manager.run_command()
@@ -513,7 +516,7 @@ class FeedbackUI(QMainWindow):
             return
             
         # 获取当前语言的默认按钮配置
-        current_defaults = self._get_smart_default_responses()
+        current_defaults = self._get_default_quick_responses()
         
         # 检查是否有自定义按钮配置
         if not hasattr(self, '_has_custom_buttons') or not self._has_custom_buttons:

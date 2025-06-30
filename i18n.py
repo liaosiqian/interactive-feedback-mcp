@@ -50,7 +50,7 @@ class I18n:
                 # 移除regenerate_checklist（与complete_all_checklist功能重叠）
                 # "regenerate_checklist": "🔄 重新生成清单",
                 "complete_and_record": "📝 完成并记录",
-                "summarize_to_cursorrule": "📋 总结生成cursorrule",
+                "summarize_to_cursorrule": "📋 总结生成规则文件",
                 "looks_good": "✅ 看起来不错",
                 "needs_adjustment": "🔧 需要小调整",
                 # 移除reimplemented和fix_issues（与needs_adjustment功能重叠）
@@ -122,7 +122,7 @@ class I18n:
                 "execute_next_feedback": "继续执行下一项清单项，执行完后需要调用 interactive-feedback-mcp 等待我的反馈",
                 "regenerate_feedback": "重新生成清单项，并更新到markdown文档，生成完后需要调用 interactive-feedback-mcp 等待我的反馈",
                 "complete_record_feedback": "继续完成剩余的所有清单项，并且将处理结果记录到markdown文档，所有清单项完成后需要调用 interactive-feedback-mcp 等待我的反馈",
-                "summarize_cursorrule_feedback": "请总结当前对话的关键内容，提取核心规则和最佳实践，生成或更新项目的.cursorrules文件，执行完后自行判定是否需要调用interactive-feedback-mcp等待我的反馈",
+                "summarize_cursorrule_feedback": "请总结当前对话的关键内容，提取核心规则和最佳实践，同时生成或更新项目的两种规则文件：1) 传统的.cursorrules文件（向后兼容）2) 新标准的.cursor/rules/main.mdc文件（推荐格式），确保两种格式内容一致且符合各自的格式规范，执行完后调用interactive-feedback-mcp等待我的反馈",
                 "looks_good_feedback": "看起来不错，继续按照当前方向实施。",
                 "needs_adjustment_feedback": "基本方向正确，但需要一些小的调整和优化。",
                 "reimplemented_feedback": "当前实现不符合预期，请重新分析需求并实现。",
@@ -212,7 +212,7 @@ class I18n:
                 # 移除regenerate_checklist（与complete_all_checklist功能重叠）
                 # "regenerate_checklist": "🔄 Regenerate Checklist",
                 "complete_and_record": "📝 Complete and Record",
-                "summarize_to_cursorrule": "📋 Summarize to .cursorrules",
+                "summarize_to_cursorrule": "📋 Generate Rule Files",
                 "looks_good": "✅ Looks Good",
                 "needs_adjustment": "🔧 Needs Adjustment",
                 # 移除reimplemented和fix_issues（与needs_adjustment功能重叠）
@@ -285,7 +285,7 @@ class I18n:
                 # 移除regenerate_feedback（功能重叠）
                 # "regenerate_feedback": "Regenerate checklist and update markdown, call interactive-feedback-mcp when done",
                 "complete_record_feedback": "Complete all items and document results, call interactive-feedback-mcp when finished",
-                "summarize_cursorrule_feedback": "Please summarize the key content of current conversation, extract core rules and best practices, generate or update the project's .cursorrules file, determine whether to call interactive-feedback-mcp after execution based on the situation",
+                "summarize_cursorrule_feedback": "Please summarize the key content of current conversation, extract core rules and best practices, and generate or update both rule file formats: 1) Traditional .cursorrules file (backward compatibility) 2) New standard .cursor/rules/main.mdc file (recommended format). Ensure both formats have consistent content and follow their respective format specifications. Call interactive-feedback-mcp after execution for feedback.",
                 "looks_good_feedback": "LGTM! Continue as planned.",
                 "needs_adjustment_feedback": "Good direction, but needs minor tweaks.",
                 # 移除重复的反馈内容
